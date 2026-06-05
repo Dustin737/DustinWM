@@ -28,6 +28,11 @@
                 <span id="favoritesCount" class="favorites-count">0</span>
             </button>
             
+            <button id="predictionsBtn" class="header-btn predictions-btn" title="Meine Vorhersagen">
+                🎯
+                <span id="predictionsCount" class="predictions-count">0</span>
+            </button>
+            
             <button id="settingsBtn" class="header-btn settings-btn" title="Einstellungen">
                 ⚙️
             </button>
@@ -39,30 +44,154 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h2>Einstellungen</h2>
-                <button class="close-btn">&times;</button>
+                <button class="close-btn" id="settingsCloseBtn">&times;</button>
             </div>
             
-            <div class="settings-group">
-                <label for="bgColor">Hintergrundfarbe:</label>
-                <input type="color" id="bgColor" value="#f0f0f0">
+            <div class="settings-section">
+                <button class="settings-toggle" data-section="colors">
+                    <span class="toggle-arrow">▼</span>
+                    🎨 Farben anpassen
+                </button>
+                <div class="settings-content" id="colors" style="display: block;">
+                    <div class="settings-group">
+                        <label>Hintergrundfarbe:</label>
+                        <div class="color-options">
+                            <input type="radio" name="bgColor" value="white" id="bg-white">
+                            <label for="bg-white" class="color-label" style="background-color: white; border: 2px solid #000;"></label>
+                            
+                            <input type="radio" name="bgColor" value="black" id="bg-black">
+                            <label for="bg-black" class="color-label" style="background-color: black;"></label>
+                            
+                            <input type="radio" name="bgColor" value="red" id="bg-red">
+                            <label for="bg-red" class="color-label" style="background-color: red;"></label>
+                            
+                            <input type="radio" name="bgColor" value="yellow" id="bg-yellow">
+                            <label for="bg-yellow" class="color-label" style="background-color: yellow; border: 1px solid #999;"></label>
+                            
+                            <input type="radio" name="bgColor" value="blue" id="bg-blue">
+                            <label for="bg-blue" class="color-label" style="background-color: blue;"></label>
+                            
+                            <input type="radio" name="bgColor" value="gray" id="bg-gray">
+                            <label for="bg-gray" class="color-label" style="background-color: gray;"></label>
+                            
+                            <input type="radio" name="bgColor" value="purple" id="bg-purple">
+                            <label for="bg-purple" class="color-label" style="background-color: purple;"></label>
+                            
+                            <input type="radio" name="bgColor" value="green" id="bg-green">
+                            <label for="bg-green" class="color-label" style="background-color: green;"></label>
+                            
+                            <input type="radio" name="bgColor" value="lightgreen" id="bg-lightgreen">
+                            <label for="bg-lightgreen" class="color-label" style="background-color: lightgreen; border: 1px solid #999;"></label>
+                            
+                            <input type="radio" name="bgColor" value="darkgreen" id="bg-darkgreen">
+                            <label for="bg-darkgreen" class="color-label" style="background-color: darkgreen;"></label>
+                            
+                            <input type="radio" name="bgColor" value="lightblue" id="bg-lightblue">
+                            <label for="bg-lightblue" class="color-label" style="background-color: lightblue; border: 1px solid #999;"></label>
+                            
+                            <input type="radio" name="bgColor" value="darkblue" id="bg-darkblue">
+                            <label for="bg-darkblue" class="color-label" style="background-color: darkblue;"></label>
+                            
+                            <input type="radio" name="bgColor" value="germanyBg" id="bg-germany">
+                            <label for="bg-germany" class="color-label" style="background: linear-gradient(to bottom, #000 0%, #000 33%, #D00 33%, #D00 66%, #FFCE00 66%, #FFCE00 100%);"></label>
+                        </div>
+                    </div>
+
+                    <div class="settings-group">
+                        <label>Kartenfarbe:</label>
+                        <div class="color-options">
+                            <input type="radio" name="cardColor" value="white" id="card-white">
+                            <label for="card-white" class="color-label" style="background-color: white; border: 2px solid #000;"></label>
+                            
+                            <input type="radio" name="cardColor" value="black" id="card-black">
+                            <label for="card-black" class="color-label" style="background-color: black;"></label>
+                            
+                            <input type="radio" name="cardColor" value="lightgray" id="card-lightgray">
+                            <label for="card-lightgray" class="color-label" style="background-color: lightgray; border: 1px solid #999;"></label>
+                            
+                            <input type="radio" name="cardColor" value="blue" id="card-blue">
+                            <label for="card-blue" class="color-label" style="background-color: blue;"></label>
+                            
+                            <input type="radio" name="cardColor" value="lightblue" id="card-lightblue">
+                            <label for="card-lightblue" class="color-label" style="background-color: lightblue; border: 1px solid #999;"></label>
+                            
+                            <input type="radio" name="cardColor" value="darkblue" id="card-darkblue">
+                            <label for="card-darkblue" class="color-label" style="background-color: darkblue;"></label>
+                            
+                            <input type="radio" name="cardColor" value="green" id="card-green">
+                            <label for="card-green" class="color-label" style="background-color: green;"></label>
+                            
+                            <input type="radio" name="cardColor" value="lightgreen" id="card-lightgreen">
+                            <label for="card-lightgreen" class="color-label" style="background-color: lightgreen; border: 1px solid #999;"></label>
+                        </div>
+                    </div>
+
+                    <div class="settings-group">
+                        <label>Kopfleistenfarbe:</label>
+                        <div class="color-options">
+                            <input type="radio" name="headerColor" value="darkblue" id="header-darkblue">
+                            <label for="header-darkblue" class="color-label" style="background-color: darkblue;"></label>
+                            
+                            <input type="radio" name="headerColor" value="black" id="header-black">
+                            <label for="header-black" class="color-label" style="background-color: black;"></label>
+                            
+                            <input type="radio" name="headerColor" value="red" id="header-red">
+                            <label for="header-red" class="color-label" style="background-color: red;"></label>
+                            
+                            <input type="radio" name="headerColor" value="green" id="header-green">
+                            <label for="header-green" class="color-label" style="background-color: green;"></label>
+                            
+                            <input type="radio" name="headerColor" value="gold" id="header-gold">
+                            <label for="header-gold" class="color-label" style="background-color: gold; border: 1px solid #999;"></label>
+                            
+                            <input type="radio" name="headerColor" value="purple" id="header-purple">
+                            <label for="header-purple" class="color-label" style="background-color: purple;"></label>
+                            
+                            <input type="radio" name="headerColor" value="navy" id="header-navy">
+                            <label for="header-navy" class="color-label" style="background-color: navy;"></label>
+                            
+                            <input type="radio" name="headerColor" value="teal" id="header-teal">
+                            <label for="header-teal" class="color-label" style="background-color: teal;"></label>
+                        </div>
+                    </div>
+
+                    <div class="settings-group">
+                        <label>Textfarbe:</label>
+                        <div class="color-options">
+                            <input type="radio" name="textColor" value="black" id="text-black">
+                            <label for="text-black" class="color-label" style="background-color: black;"></label>
+                            
+                            <input type="radio" name="textColor" value="white" id="text-white">
+                            <label for="text-white" class="color-label" style="background-color: white; border: 2px solid #000;"></label>
+                            
+                            <input type="radio" name="textColor" value="gray" id="text-gray">
+                            <label for="text-gray" class="color-label" style="background-color: gray;"></label>
+                            
+                            <input type="radio" name="textColor" value="darkblue" id="text-darkblue">
+                            <label for="text-darkblue" class="color-label" style="background-color: darkblue;"></label>
+                            
+                            <input type="radio" name="textColor" value="darkgreen" id="text-darkgreen">
+                            <label for="text-darkgreen" class="color-label" style="background-color: darkgreen;"></label>
+                        </div>
+                    </div>
+                </div>
             </div>
-            
-            <div class="settings-group">
-                <label for="cardColor">Kartënfarbe:</label>
-                <input type="color" id="cardColor" value="#ffffff">
-            </div>
-            
-            <div class="settings-group">
-                <label for="headerColor">Obere Leiste:</label>
-                <input type="color" id="headerColor" value="#1e3a8a">
-            </div>
-            
-            <div class="settings-group">
-                <label for="textColor">Textfarbe:</label>
-                <input type="color" id="textColor" value="#000000">
-            </div>
-            
+
             <button id="resetSettingsBtn" class="reset-btn">Standard wiederherstellen</button>
+        </div>
+    </div>
+
+    <!-- Predictions Modal -->
+    <div id="predictionsModal" class="modal">
+        <div class="modal-content predictions-modal">
+            <div class="modal-header">
+                <h2>Meine Vorhersagen</h2>
+                <button class="close-btn" id="predictionsCloseBtn">&times;</button>
+            </div>
+            
+            <div id="predictionsContainer" class="predictions-container">
+                <!-- Predictions werden hier eingefügt -->
+            </div>
         </div>
     </div>
 
