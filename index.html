@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FIFA Weltmeisterschaft 2026</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header/Navigation Bar -->
+    <header class="header">
+        <div class="header-left">
+            <h1>🌍 WM 2026</h1>
+        </div>
+        
+        <div class="header-center">
+            <input 
+                type="text" 
+                id="searchInput" 
+                class="search-bar" 
+                placeholder="Nach Datum, Team oder Ort suchen..."
+            >
+        </div>
+        
+        <div class="header-right">
+            <button id="favoritesBtn" class="header-btn favorites-btn" title="Meine Favoriten">
+                <span class="heart-icon">❤️</span>
+                <span id="favoritesCount" class="favorites-count">0</span>
+            </button>
+            
+            <button id="settingsBtn" class="header-btn settings-btn" title="Einstellungen">
+                ⚙️
+            </button>
+        </div>
+    </header>
+
+    <!-- Settings Modal -->
+    <div id="settingsModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Einstellungen</h2>
+                <button class="close-btn">&times;</button>
+            </div>
+            
+            <div class="settings-group">
+                <label for="bgColor">Hintergrundfarbe:</label>
+                <input type="color" id="bgColor" value="#f0f0f0">
+            </div>
+            
+            <div class="settings-group">
+                <label for="cardColor">Kartënfarbe:</label>
+                <input type="color" id="cardColor" value="#ffffff">
+            </div>
+            
+            <div class="settings-group">
+                <label for="headerColor">Obere Leiste:</label>
+                <input type="color" id="headerColor" value="#1e3a8a">
+            </div>
+            
+            <div class="settings-group">
+                <label for="textColor">Textfarbe:</label>
+                <input type="color" id="textColor" value="#000000">
+            </div>
+            
+            <button id="resetSettingsBtn" class="reset-btn">Standard wiederherstellen</button>
+        </div>
+    </div>
+
+    <!-- Main Container -->
+    <main class="container">
+        <section id="gamesSection" class="games-section">
+            <h2 id="sectionTitle">Alle Spiele</h2>
+            <div id="gamesGrid" class="games-grid">
+                <!-- Spielkarten werden hier eingefügt -->
+            </div>
+        </section>
+        
+        <section id="noResults" class="no-results" style="display: none;">
+            <p>❌ Keine Spiele gefunden. Bitte versuchen Sie eine andere Suche.</p>
+        </section>
+    </main>
+
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
